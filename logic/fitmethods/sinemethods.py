@@ -591,12 +591,15 @@ def make_sine_fit(self, x_axis, data, estimator, units=None, add_params=None):
 
     result_str_dict = dict()
 
-    period = 1/result.params['frequency'].value
-    period_err = 1/result.params['frequency'].stderr
+    frequency = 1/result.params['frequency'].value
+    frequency_err = 1/result.params['frequency'].stderr
 
-    result_str_dict['Period'] = {'value': 1/period if period else 0.0,
-                                 'error': 1/period_err if period_err else 0.0,
+    result_str_dict['Period'] = {'value': 1/frequency if frequency else 0.0,
+                                 'error': 1/frequency_err if frequency_err else 0.0,
                                  'unit': '1/'+units[0]}
+    result_str_dict['Frequency'] = {'value': result.params['frequency'].value,
+                                    'error': result.params['frequency'].stderr,
+                                    'unit': units[0]}
     result_str_dict['Amplitude'] = {'value': result.params['amplitude'].value,
                                     'error': result.params['amplitude'].stderr,
                                     'unit': units[1]}
@@ -679,11 +682,11 @@ def make_sineexponentialdecay_fit(self, x_axis, data, estimator, units=None, add
 
     result_str_dict = dict()
 
-    period = 1/result.params['frequency'].value
-    period_err = 1/result.params['frequency'].stderr
+    frequency = result.params['frequency'].value
+    frequency_err = result.params['frequency'].stderr
 
-    result_str_dict['Period'] = {'value': 1/period if period else 0.0,
-                                 'error': 1/period_err if period_err else 0.0,
+    result_str_dict['Period'] = {'value': 1/frequency if frequency else 0.0,
+                                 'error': 1/frequency_err if frequency_err else 0.0,
                                  'unit': '1/'+units[0]}
     result_str_dict['Frequency'] = {'value': result.params['frequency'].value,
                                     'error': result.params['frequency'].stderr,
@@ -836,11 +839,11 @@ def make_sinestretchedexponentialdecay_fit(self, x_axis, data, estimator, units=
 
     result_str_dict = dict()
 
-    period = 1/result.params['frequency'].value
-    period_err = 1/result.params['frequency'].stderr
+    frequency = result.params['frequency'].value
+    frequency_err = result.params['frequency'].stderr
 
-    result_str_dict['Period'] = {'value': 1/period if period else 0.0,
-                                 'error': 1/period_err if period_err else 0.0,
+    result_str_dict['Period'] = {'value': 1/frequency if frequency else 0.0,
+                                 'error': 1/frequency_err if frequency_err else 0.0,
                                  'unit': '1/'+units[0]}
     result_str_dict['Frequency'] = {'value': result.params['frequency'].value,
                                     'error': result.params['frequency'].stderr,
@@ -926,18 +929,18 @@ def make_sinedouble_fit(self, x_axis, data, estimator, units=None, add_params=No
 
     result_str_dict = dict()  # create result string for gui or OrderedDict()
 
-    period1 = result.params['s1_frequency'].value
-    period1_err = result.params['s1_frequency'].stderr
+    frequency1 = result.params['s1_frequency'].value
+    frequency1_err = result.params['s1_frequency'].stderr
 
-    period2 = result.params['s2_frequency'].value
-    period2_err = result.params['s2_frequency'].stderr
+    frequency2 = result.params['s2_frequency'].value
+    frequency2_err = result.params['s2_frequency'].stderr
 
-    result_str_dict['Period 1'] = {'value': 1/period1 if period1 else 0.0,
-                                   'error': 1/period1_err if period1_err else 0.0,
+    result_str_dict['Period 1'] = {'value': 1/frequency1 if frequency1 else 0.0,
+                                   'error': 1/frequency1_err if frequency1_err else 0.0,
                                    'unit': '1/'+units[0]}
 
-    result_str_dict['Period 2'] = {'value': 1/period2 if period2 else 0.0,
-                                   'error': 1/period2_err if period2_err else 0.0,
+    result_str_dict['Period 2'] = {'value': 1/frequency2 if frequency2 else 0.0,
+                                   'error': 1/frequency2_err if frequency2_err else 0.0,
                                    'unit': '1/'+units[0]}
 
     result_str_dict['Frequency 1'] = {'value': result.params['s1_frequency'].value,
@@ -1050,18 +1053,18 @@ def make_sinedoublewithexpdecay_fit(self, x_axis, data, estimator, units=None, a
 
     result_str_dict = dict()  # create result string for gui or OrderedDict()
 
-    period1 = result.params['s1_frequency'].value
-    period1_err = result.params['s1_frequency'].stderr
+    frequency1 = result.params['s1_frequency'].value
+    frequency1_err = result.params['s1_frequency'].stderr
 
-    period2 = result.params['s2_frequency'].value
-    period2_err = result.params['s2_frequency'].stderr
+    frequency2 = result.params['s2_frequency'].value
+    frequency2_err = result.params['s2_frequency'].stderr
 
-    result_str_dict['Period 1'] = {'value': 1/period1 if period1 else 0.0,
-                                   'error': 1/period1_err if period1_err else 0.0,
+    result_str_dict['Period 1'] = {'value': 1/frequency1 if frequency1 else 0.0,
+                                   'error': 1/frequency1_err if frequency1_err else 0.0,
                                    'unit': '1/'+units[0]}
 
-    result_str_dict['Period 2'] = {'value': 1/period2 if period2 else 0.0,
-                                   'error': 1/period2_err if period2_err else 0.0,
+    result_str_dict['Period 2'] = {'value': 1/frequency2 if frequency2 else 0.0,
+                                   'error': 1/frequency2_err if frequency2_err else 0.0,
                                    'unit': '1/'+units[0]}
 
     result_str_dict['Frequency 1'] = {'value': result.params['s1_frequency'].value,
@@ -1188,18 +1191,18 @@ def make_sinedoublewithtwoexpdecay_fit(self, x_axis, data, estimator, units=None
 
     result_str_dict = dict()  # create result string for gui or OrderedDict()
 
-    period1 = result.params['e1_frequency'].value
-    period1_err = result.params['e1_frequency'].stderr
+    frequency1 = result.params['e1_frequency'].value
+    frequency1_err = result.params['e1_frequency'].stderr
 
-    period2 = result.params['e2_frequency'].value
-    period2_err = result.params['e2_frequency'].stderr
+    frequency2 = result.params['e2_frequency'].value
+    frequency2_err = result.params['e2_frequency'].stderr
 
-    result_str_dict['Period 1'] = {'value': 1/period1 if period1 else 0.0,
-                                   'error': 1/period1_err if period1_err else 0.0,
+    result_str_dict['Period 1'] = {'value': 1/frequency1 if frequency1 else 0.0,
+                                   'error': 1/frequency1_err if frequency1_err else 0.0,
                                    'unit': '1/'+units[0]}
 
-    result_str_dict['Period 2'] = {'value': 1/period2 if period2 else 0.0,
-                                   'error': 1/period2_err if period2_err else 0.0,
+    result_str_dict['Period 2'] = {'value': 1/frequency2 if frequency2 else 0.0,
+                                   'error': 1/frequency2_err if frequency2_err else 0.0,
                                    'unit': '1/'+units[0]}
 
     result_str_dict['Frequency 1'] = {'value': result.params['e1_frequency'].value,
@@ -1331,23 +1334,23 @@ def make_sinetriple_fit(self, x_axis, data, estimator, units=None, add_params=No
 
     result_str_dict = dict()  # create result string for gui or OrderedDict()
 
-    period1 = result.params['s1_frequency'].value
-    period1_err = result.params['s1_frequency'].stderr
+    frequency1 = result.params['s1_frequency'].value
+    frequency1_err = result.params['s1_frequency'].stderr
 
-    period2 = result.params['s2_frequency'].value
-    period2_err = result.params['s2_frequency'].stderr
+    frequency2 = result.params['s2_frequency'].value
+    frequency2_err = result.params['s2_frequency'].stderr
 
-    period3 = result.params['s3_frequency'].value
-    period3_err = result.params['s3_frequency'].stderr
+    frequency3 = result.params['s3_frequency'].value
+    frequency3_err = result.params['s3_frequency'].stderr
 
-    result_str_dict['Period 1'] = {'value': 1/period1 if period1 else 0.0,
-                                   'error': 1/period1_err if period1_err else 0.0,
+    result_str_dict['Period 1'] = {'value': 1/frequency1 if frequency1 else 0.0,
+                                   'error': 1/frequency1_err if frequency1_err else 0.0,
                                    'unit': '1/'+units[0]}
-    result_str_dict['Period 2'] = {'value': 1/period2 if period2 else 0.0,
-                                   'error': 1/period2_err if period2_err else 0.0,
+    result_str_dict['Period 2'] = {'value': 1/frequency2 if frequency2 else 0.0,
+                                   'error': 1/frequency2_err if frequency2_err else 0.0,
                                    'unit': '1/'+units[0]}
-    result_str_dict['Period 3'] = {'value': 1/period3 if period3 else 0.0,
-                                   'error': 1/period3_err if period3_err else 0.0,
+    result_str_dict['Period 3'] = {'value': 1/frequency3 if frequency3 else 0.0,
+                                   'error': 1/frequency3_err if frequency3_err else 0.0,
                                    'unit': '1/'+units[0]}
 
     result_str_dict['Frequency 1'] = {'value': result.params['s1_frequency'].value,
@@ -1476,23 +1479,23 @@ def make_sinetriplewithexpdecay_fit(self, x_axis, data, estimator, units=None, a
 
     result_str_dict = dict()  # create result string for gui or OrderedDict()
 
-    period1 = result.params['s1_frequency'].value
-    period1_err = result.params['s1_frequency'].stderr
+    frequency1 = result.params['s1_frequency'].value
+    frequency1_err = result.params['s1_frequency'].stderr
 
-    period2 = result.params['s2_frequency'].value
-    period2_err = result.params['s2_frequency'].stderr
+    frequency2 = result.params['s2_frequency'].value
+    frequency2_err = result.params['s2_frequency'].stderr
 
-    period3 = result.params['s3_frequency'].value
-    period3_err = result.params['s3_frequency'].stderr
+    frequency3 = result.params['s3_frequency'].value
+    frequency3_err = result.params['s3_frequency'].stderr
 
-    result_str_dict['Period 1'] = {'value': 1/period1 if period1 else 0.0,
-                                   'error': 1/period1_err if period1_err else 0.0,
+    result_str_dict['Period 1'] = {'value': 1/frequency1 if frequency1 else 0.0,
+                                   'error': 1/frequency1_err if frequency1_err else 0.0,
                                    'unit': '1/'+units[0]}
-    result_str_dict['Period 2'] = {'value': 1/period2 if period2 else 0.0,
-                                   'error': 1/period2_err if period2_err else 0.0,
+    result_str_dict['Period 2'] = {'value': 1/frequency2 if frequency2 else 0.0,
+                                   'error': 1/frequency2_err if frequency2_err else 0.0,
                                    'unit': '1/'+units[0]}
-    result_str_dict['Period 3'] = {'value': 1/period3 if period3 else 0.0,
-                                   'error': 1/period3_err if period3_err else 0.0,
+    result_str_dict['Period 3'] = {'value': 1/frequency3 if frequency3 else 0.0,
+                                   'error': 1/frequency3_err if frequency3_err else 0.0,
                                    'unit': '1/'+units[0]}
 
     result_str_dict['Frequency 1'] = {'value': result.params['s1_frequency'].value,
@@ -1642,23 +1645,23 @@ def make_sinetriplewiththreeexpdecay_fit(self, x_axis, data, estimator, units=No
 
     result_str_dict = dict()  # create result string for gui or OrderedDict()
 
-    period1 = result.params['e1_frequency'].value
-    period1_err = result.params['e1_frequency'].stderr
+    frequency1 = result.params['e1_frequency'].value
+    frequency1_err = result.params['e1_frequency'].stderr
 
-    period2 = result.params['e2_frequency'].value
-    period2_err = result.params['e2_frequency'].stderr
+    frequency2 = result.params['e2_frequency'].value
+    frequency2_err = result.params['e2_frequency'].stderr
 
-    period3 = result.params['e3_frequency'].value
-    period3_err = result.params['e3_frequency'].stderr
+    frequency3 = result.params['e3_frequency'].value
+    frequency3_err = result.params['e3_frequency'].stderr
 
-    result_str_dict['Period 1'] = {'value': 1/period1 if period1 else 0.0,
-                                   'error': 1/period1_err if period1_err else 0.0,
+    result_str_dict['Period 1'] = {'value': 1/frequency1 if frequency1 else 0.0,
+                                   'error': 1/frequency1_err if frequency1_err else 0.0,
                                    'unit': '1/'+units[0]}
-    result_str_dict['Period 2'] = {'value': 1/period2 if period2 else 0.0,
-                                   'error': 1/period2_err if period2_err else 0.0,
+    result_str_dict['Period 2'] = {'value': 1/frequency2 if frequency2 else 0.0,
+                                   'error': 1/frequency2_err if frequency2_err else 0.0,
                                    'unit': '1/'+units[0]}
-    result_str_dict['Period 3'] = {'value': 1/period3 if period3 else 0.0,
-                                   'error': 1/period3_err if period3_err else 0.0,
+    result_str_dict['Period 3'] = {'value': 1/frequency3 if frequency3 else 0.0,
+                                   'error': 1/frequency3_err if frequency3_err else 0.0,
                                    'unit': '1/'+units[0]}
 
     result_str_dict['Frequency 1'] = {'value': result.params['e1_frequency'].value,
