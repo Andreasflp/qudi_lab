@@ -591,8 +591,8 @@ def make_sine_fit(self, x_axis, data, estimator, units=None, add_params=None):
 
     result_str_dict = dict()
 
-    frequency = 1/result.params['frequency'].value
-    frequency_err = 1/result.params['frequency'].stderr
+    frequency = result.params['frequency'].value
+    frequency_err = result.params['frequency'].stderr
 
     result_str_dict['Period'] = {'value': 1/frequency if frequency else 0.0,
                                  'error': 1/frequency_err if frequency_err else 0.0,
