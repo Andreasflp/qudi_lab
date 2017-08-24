@@ -47,6 +47,7 @@ class SlowGatedNICard(NICard):
         self._gated_counter_daq_task = None
         self._counter_channels = []
         self._counter_channel = '/NIDAQ/Ctr0'
+        self._scanner_ao_channels = []
 
         config = self.getConfiguration()
 
