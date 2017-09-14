@@ -1268,122 +1268,178 @@ class PulsedMasterLogic(GenericLogic):
         self.sigPredefinedSequencesUpdated.emit(generator_methods_dict)
         return
 
-    #######################################################################
-    ###             Helper  methods                                     ###
-    #######################################################################
+    ############################################################################
+    ###                         Helper  methods                              ###
+    ############################################################################
+
     def _get_asset_parameters(self, asset_obj):
+        """ Helper method to extract the asset parameters from a given object.
+
+        @param object asset_obj:
+
+        Right now it is mostly used to extract the activation config and will
+        offer an error code for that.
+
+        @return: dict with arranged parameters of the provided asset_object.
         """
 
-        @param asset_obj:
-        @return:
-        """
         if type(asset_obj).__name__ == 'PulseSequence':
-            self.log.warning('Calculation of measurement sequence parameters not implemented yet '
-                             'for PulseSequence objects.')
+            self.log.warning('Calculation of measurement sequence parameters '
+                             'not implemented yet for PulseSequence objects.')
             return {'err_code': -1}
+
         # Create return dictionary
         return_params = {'err_code': 0}
 
         # Get activation config and name
         if asset_obj.activation_config is None:
             return_params['activation_config'] = self._generator_logic.activation_config
-            self.log.warning('No activation config specified in asset "{0}" metadata. Choosing '
-                             'currently set activation config "{1}" from sequence_generator_logic.'
-                             ''.format(asset_obj.name, return_params['activation_config']))
+            self.log.warning('No activation config specified in asset "{0}" '
+                             'metadata. Choosing currently set activation '
+                             'config "{1}" from sequence_generator_logic.'
+                             ''.format(asset_obj.name,
+                                       return_params['activation_config']))
         else:
             return_params['activation_config'] = asset_obj.activation_config
+
         config_name = None
         avail_configs = self._measurement_logic.get_pulser_constraints().activation_config
+
+        # check whether config of asset_obj is a valid one:
         for config in avail_configs:
             if return_params['activation_config'] == avail_configs[config]:
                 config_name = config
                 break
+
+        # if no suitable config was found, throw an error.
         if config_name is None:
-            self.log.error('Activation config {0} is not part of the allowed activation '
-                           'configs in the pulse generator hardware.'
+            self.log.error('Activation config {0} is not part of the allowed '
+                           'activation configs in the pulse generator hardware.'
                            ''.format(return_params['activation_config']))
             return_params['err_code'] = -1
             return return_params
         else:
             return_params['config_name'] = config_name
 
-        # Get analogue voltages
+        # Check whether specified analogue voltages are valid and then use it.
         if asset_obj.amplitude_dict is None:
             return_params['amplitude_dict'] = self._generator_logic.amplitude_dict
-            self.log.warning('No amplitude dictionary specified in asset "{0}" metadata. Choosing '
-                             'currently set amplitude dict "{1}" from sequence_generator_logic.'
-                             ''.format(asset_obj.name, return_params['amplitude_dict']))
+            self.log.warning('No amplitude dictionary specified in asset "{0}" '
+                             'metadata. Choosing currently set amplitude dict '
+                             '"{1}" from sequence_generator_logic.'
+                             ''.format(asset_obj.name,
+                                       return_params['amplitude_dict']))
         else:
             return_params['amplitude_dict'] = asset_obj.amplitude_dict
 
-        # Get sample rate
+        # Extract the sample rate and check whether this one is still set.
         if asset_obj.sample_rate is None:
             return_params['sample_rate'] = self._generator_logic.sample_rate
-            self.log.warning('No sample rate specified in asset "{0}" metadata. Choosing '
-                             'currently set sample rate "{1:.2e}" from sequence_generator_logic.'
-                             ''.format(asset_obj.name, return_params['sample_rate']))
+            self.log.warning('No sample rate specified in asset "{0}" '
+                             'metadata. Choosing currently set sample rate '
+                             '"{1:.2e}" from sequence_generator_logic.'
+                             ''.format(asset_obj.name,
+                                       return_params['sample_rate']))
         else:
             return_params['sample_rate'] = asset_obj.sample_rate
 
         # Get sequence length
         return_params['sequence_length'] = asset_obj.length_s
-        return_params['sequence_length_bins'] = asset_obj.length_s*self._generator_logic.sample_rate
+        return_params['sequence_length_bins'] = int(asset_obj.length_s*self._generator_logic.sample_rate)
 
         # Get number of laser pulses and max laser length
         if asset_obj.laser_channel is None:
             laser_chnl = self._generator_logic.laser_channel
-            self.log.warning('No laser channel specified in asset "{0}" metadata. Choosing '
-                             'currently set laser channel "{1}" from sequence_generator_logic.'
+            self.log.warning('No laser channel specified in asset "{0}" '
+                             'metadata. Choosing currently set laser channel '
+                             '"{1}" from sequence_generator_logic.'
                              ''.format(asset_obj.name, laser_chnl))
         else:
             laser_chnl = asset_obj.laser_channel
+
         num_of_lasers = 0
         max_laser_length = 0.0
         tmp_laser_on = False
         tmp_laser_length = 0.0
+
         for block, reps in asset_obj.block_list:
             tmp_lasers_num = 0
             for element in block.element_list:
+
                 if 'd_ch' in laser_chnl:
+                    # extract the digital channels:
                     d_channels = [ch for ch in return_params['activation_config'] if 'd_ch' in ch]
+                    # get the laser channel index:
                     chnl_index = d_channels.index(laser_chnl)
+
+                    # check whether laser is already specified to be 'on' due
+                    # to previous elements and double check whether this element
+                    # at the laser index position has to be switched on:
                     if not tmp_laser_on and element.digital_high[chnl_index]:
-                        tmp_laser_on = True
+                        tmp_laser_on = True # indicate that laser is now on
                         tmp_lasers_num += 1
                     elif not element.digital_high[chnl_index]:
-                        tmp_laser_on = False
+                        tmp_laser_on = False # set laser to be off if specified
+                                             # now in the element.
+
+                    # if laser is on, keep track how long the laser is actually
+                    # on:
                     if tmp_laser_on:
+
+                        # the increment has to be reasonably, otherwise just
+                        # do not count the element to be part of the laser.
                         if element.increment_s > 1.0e-15:
                             tmp_laser_length += (element.init_length_s + reps * element.increment_s)
                         else:
                             tmp_laser_length += element.init_length_s
+
+                        # cut off the laser length if it is longer than it is
+                        # expected to be.
                         if tmp_laser_length > max_laser_length:
                             max_laser_length = tmp_laser_length
                     else:
                         tmp_laser_length = 0.0
-                else:
-                    self.log.error('Invoke measurement settings from a PulseBlockEnsemble with '
-                                   'analogue laser channel is not implemented yet.')
+
+                elif 'a_ch' in laser_chnl:
+
+                    self.log.warning('Invoke measurement settings from a '
+                                     'PulseBlockEnsemble with analogue laser '
+                                     'channel is not implemented yet.')
                     return_params['err_code'] = -1
-                    return
+                    return return_params
+
+                else:
+                    self.log.error('Invoke measurement settings from a '
+                                   'PulseBlockEnsemble which has neither an'
+                                   'digital nor an analog laser channel but the'
+                                   'following was specified: "{}".\n'
+                                   'Therefore, something went wrong. Check '
+                                   'settings or pray to god.')
+                    return_params['err_code'] = -1
+                    return return_params
+
             num_of_lasers += (tmp_lasers_num * (reps + 1))
+
         return_params['num_of_lasers'] = num_of_lasers
         return_params['max_laser_length'] = max_laser_length
 
         # Get laser ignore list
         if asset_obj.laser_ignore_list is None:
             return_params['laser_ignore_list'] = []
-            self.log.warning('No laser ignore list specified in asset "{0}" metadata. '
-                             'Assuming that no lasers should be ignored.'.format(asset_obj.name))
+            self.log.warning('No laser ignore list specified in asset "{0}" '
+                             'metadata. Assuming that no lasers should be '
+                             'ignored.'.format(asset_obj.name))
         else:
             return_params['laser_ignore_list'] = asset_obj.laser_ignore_list
 
         # Get alternating
         if asset_obj.alternating is None:
             return_params['is_alternating'] = self._measurement_logic.alternating
-            self.log.warning('No alternating specified in asset "{0}" metadata. Choosing '
-                             'currently set state "{1}" from pulsed_measurement_logic.'
-                             ''.format(asset_obj.name, return_params['is_alternating']))
+            self.log.warning('No alternating specified in asset "{0}" '
+                             'metadata. Choosing currently set state "{1}" '
+                             'from pulsed_measurement_logic.'
+                             ''.format(asset_obj.name,
+                                       return_params['is_alternating']))
         else:
             return_params['is_alternating'] = asset_obj.alternating
 
@@ -1391,12 +1447,15 @@ class PulsedMasterLogic(GenericLogic):
         if len(asset_obj.controlled_vals_array) < 1:
             ana_lasers = num_of_lasers - len(return_params['laser_ignore_list'])
             controlled_vals_array = np.arange(1, ana_lasers + 1)
-            self.log.warning('No measurement ticks specified in asset "{0}" metadata. Choosing '
-                             'laser indices instead.'.format(asset_obj.name))
+            self.log.warning('No measurement ticks specified in asset "{0}" '
+                             'metadata. Choosing laser indices instead.'
+                             ''.format(asset_obj.name))
+
             if return_params['is_alternating']:
                 controlled_vals_array = controlled_vals_array[0:ana_lasers//2]
         else:
             controlled_vals_array = asset_obj.controlled_vals_array
+
         return_params['controlled_vals_arr'] = controlled_vals_array
 
         # return all parameters
