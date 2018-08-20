@@ -1,0 +1,240 @@
+2018-08-10 14:51:54 info __main__ Loading Qudi...
+2018-08-10 14:51:55 debug core.manager Main thread is <sip.voidptr object at 0x000000000579F3F0>
+2018-08-10 14:51:55 info core.manager load.cfg config file found at C:\qudi\config\load.cfg
+2018-08-10 14:51:55 info core.manager Starting Manager configuration from C:/qudi/config/qudi-iqo-config/dk_spin_lab_magneto/dk_spin_lab_magneto.cfg
+2018-08-10 14:51:55 info core.manager Manager configuration complete.
+2018-08-10 14:51:55 debug core.threadmanager Creating thread: "rpyc-server".
+2018-08-10 14:51:55 warning core.remote Remote connection not secured! Use a certificate!
+2018-08-10 14:51:55 info core.remote Started module server at  on port 12345
+2018-08-10 14:51:55 info core.manager Started server rpyc://:12345
+2018-08-10 14:51:55 info core.manager Qudi started.
+2018-08-10 14:51:55 info core.manager Loading module ".gui.manager.managergui"
+2018-08-10 14:51:55 info RemoteModule/12345 server started on [0.0.0.0]:12345
+2018-08-10 14:51:55 info core.manager Configuring ManagerGui as man
+2018-08-10 14:51:55 debug gui.manager.managergui.ManagerGui Activation in thread <sip.voidptr object at 0x0000000006986120>
+2018-08-10 14:51:56 debug gui.manager.managergui.ManagerGui IPy activation in thread <sip.voidptr object at 0x0000000007A0D3A0>
+2018-08-10 14:51:56 info gui.manager.managergui.ManagerGui IPython has kernel True
+2018-08-10 14:51:56 info gui.manager.managergui.ManagerGui IPython kernel alive True
+2018-08-10 14:51:57 debug core.manager Activation success: True
+2018-08-10 14:51:57 info core.manager Loading module ".gui.trayicon"
+2018-08-10 14:51:57 info core.manager Configuring TrayIcon as tray
+2018-08-10 14:51:57 debug gui.trayicon.TrayIcon Activation in thread <sip.voidptr object at 0x00000000079120D0>
+2018-08-10 14:51:58 debug core.manager Activation success: True
+2018-08-10 14:51:58 info core.manager Loading module ".logic.taskrunner"
+2018-08-10 14:51:58 info core.manager Configuring TaskRunner as tasklogic
+2018-08-10 14:51:58 debug core.threadmanager Creating thread: "mod-logic-tasklogic".
+2018-08-10 14:51:58 debug logic.taskrunner.TaskRunner Activation in thread <sip.voidptr object at 0x00000000078D1030>
+2018-08-10 14:51:58 info core.manager Task runner registered.
+2018-08-10 14:51:58 debug core.manager Activation success: True
+2018-08-10 14:52:12 info core.manager Loading module ".hardware.ni_card"
+2018-08-10 14:52:13 info core.manager Configuring NICard as nicard6323
+2018-08-10 14:52:13 debug hardware.ni_card.NICard Activation in thread <sip.voidptr object at 0x0000000007912828>
+2018-08-10 14:52:15 debug core.manager Activation success: True
+2018-08-10 14:52:15 info core.manager Loading module ".logic.save_logic"
+2018-08-10 14:52:18 info core.manager Configuring SaveLogic as savelogic
+2018-08-10 14:52:18 warning logic.save_logic.SaveLogic No variable >> log_into_daily_directory << configured, using default value False instead.
+2018-08-10 14:52:18 debug core.threadmanager Creating thread: "mod-logic-savelogic".
+2018-08-10 14:52:18 debug logic.save_logic.SaveLogic Activation in thread <sip.voidptr object at 0x0000000010C3B530>
+2018-08-10 14:52:18 debug core.manager Activation success: True
+2018-08-10 14:52:18 info core.manager Loading module ".logic.counter_logic"
+2018-08-10 14:52:18 info core.manager Configuring CounterLogic as counterlogic
+2018-08-10 14:52:18 debug logic.counter_logic.CounterLogic The following configuration was found.
+2018-08-10 14:52:18 debug logic.counter_logic.CounterLogic module.Class: counter_logic.CounterLogic
+2018-08-10 14:52:18 debug logic.counter_logic.CounterLogic connect: OrderedDict([('counter1', 'nicard6323'), ('savelogic', 'savelogic')])
+2018-08-10 14:52:18 info core.manager Connecting logic.counterlogic.counter1 to hardware.nicard6323
+2018-08-10 14:52:18 info core.manager Connecting logic.counterlogic.savelogic to logic.savelogic
+2018-08-10 14:52:18 debug core.threadmanager Creating thread: "mod-logic-counterlogic".
+2018-08-10 14:52:18 debug logic.counter_logic.CounterLogic Activation in thread <sip.voidptr object at 0x000000000F5B2620>
+2018-08-10 14:52:18 debug core.manager Activation success: True
+2018-08-10 14:52:18 info core.manager Loading module ".logic.confocal_logic"
+2018-08-10 14:52:18 info core.manager Configuring ConfocalLogic as scannerlogic
+2018-08-10 14:52:18 info core.manager Connecting logic.scannerlogic.confocalscanner1 to hardware.nicard6323
+2018-08-10 14:52:18 info core.manager Connecting logic.scannerlogic.savelogic to logic.savelogic
+2018-08-10 14:52:18 debug core.threadmanager Creating thread: "mod-logic-scannerlogic".
+2018-08-10 14:52:18 debug logic.confocal_logic.ConfocalLogic Activation in thread <sip.voidptr object at 0x0000000010C3BEB8>
+2018-08-10 14:52:18 debug core.manager Activation success: True
+2018-08-10 14:52:18 info core.manager Loading module ".logic.fit_logic"
+2018-08-10 14:52:19 info core.manager Configuring FitLogic as fitlogic
+2018-08-10 14:52:19 info logic.fit_logic.FitLogic Methods were included to FitLogic, but only if naming is right: check the doxygen documentation if you added a new method and it does not show.
+2018-08-10 14:52:19 debug core.threadmanager Creating thread: "mod-logic-fitlogic".
+2018-08-10 14:52:19 debug logic.fit_logic.FitLogic Activation in thread <sip.voidptr object at 0x0000000007C7B300>
+2018-08-10 14:52:19 debug core.manager Activation success: True
+2018-08-10 14:52:19 info core.manager Loading module ".logic.optimizer_logic"
+2018-08-10 14:52:19 info core.manager Configuring OptimizerLogic as optimizerlogic
+2018-08-10 14:52:19 info core.manager Connecting logic.optimizerlogic.confocalscanner1 to hardware.nicard6323
+2018-08-10 14:52:19 info core.manager Connecting logic.optimizerlogic.fitlogic to logic.fitlogic
+2018-08-10 14:52:19 debug core.threadmanager Creating thread: "mod-logic-optimizerlogic".
+2018-08-10 14:52:19 debug logic.optimizer_logic.OptimizerLogic Activation in thread <sip.voidptr object at 0x000000000F5D5EE0>
+2018-08-10 14:52:19 debug core.manager Activation success: True
+2018-08-10 14:52:19 info core.manager Loading module ".gui.confocal.confocalgui"
+2018-08-10 14:52:20 info core.manager Configuring ConfocalGui as confocalgui
+2018-08-10 14:52:20 info core.manager Connecting gui.confocalgui.confocallogic1 to logic.scannerlogic
+2018-08-10 14:52:20 info core.manager Connecting gui.confocalgui.savelogic to logic.savelogic
+2018-08-10 14:52:20 info core.manager Connecting gui.confocalgui.optimizerlogic1 to logic.optimizerlogic
+2018-08-10 14:52:20 debug gui.confocal.confocalgui.ConfocalGui Activation in thread <sip.voidptr object at 0x000000000F5D5C60>
+2018-08-10 14:52:21 warning Qt QWindowsWindow::setGeometry: Unable to set geometry 1261x1362+8+30 on QWidgetWindow/'MainWindowWindow'. Resulting geometry:  1261x1062+8+30 (frame: 8, 30, 8, 8, custom margin: 0, 0, 0, 0, minimum size: 802x922, maximum size: 16777215x16777215).
+2018-08-10 14:52:21 debug core.manager Activation success: True
+2018-08-10 14:52:21 info core.manager Loading module ".gui.counter.countergui"
+2018-08-10 14:52:21 info core.manager Configuring CounterGui as countergui
+2018-08-10 14:52:21 info core.manager Connecting gui.countergui.counterlogic1 to logic.counterlogic
+2018-08-10 14:52:21 debug gui.counter.countergui.CounterGui Activation in thread <sip.voidptr object at 0x0000000007CCFC88>
+2018-08-10 14:52:21 debug core.manager Activation success: True
+2018-08-10 14:59:28 info core.manager Loading module ".hardware.gated_ni_card"
+2018-08-10 14:59:28 info core.manager Configuring SlowGatedNICard as gated_counter_nicard6323
+2018-08-10 14:59:28 warning hardware.gated_ni_card.SlowGatedNICard No variable >> clock_frequency << configured, using default value 100 instead.
+2018-08-10 14:59:28 warning hardware.gated_ni_card.SlowGatedNICard No variable >> scanner_clock_frequency << configured, using default value 100 instead.
+2018-08-10 14:59:28 debug hardware.gated_ni_card.SlowGatedNICard Activation in thread <sip.voidptr object at 0x0000000013AF1FA8>
+2018-08-10 14:59:28 debug core.manager Activation success: True
+2018-08-10 14:59:28 info core.manager Loading module ".logic.counter_logic"
+2018-08-10 14:59:28 info core.manager Configuring CounterLogic as gatedcounter
+2018-08-10 14:59:28 debug logic.counter_logic.CounterLogic The following configuration was found.
+2018-08-10 14:59:28 debug logic.counter_logic.CounterLogic module.Class: counter_logic.CounterLogic
+2018-08-10 14:59:28 debug logic.counter_logic.CounterLogic connect: OrderedDict([('counter1', 'gated_counter_nicard6323'), ('savelogic', 'savelogic')])
+2018-08-10 14:59:28 info core.manager Connecting logic.gatedcounter.counter1 to hardware.gated_counter_nicard6323
+2018-08-10 14:59:28 info core.manager Connecting logic.gatedcounter.savelogic to logic.savelogic
+2018-08-10 14:59:28 debug core.threadmanager Creating thread: "mod-logic-gatedcounter".
+2018-08-10 14:59:28 debug logic.counter_logic.CounterLogic Activation in thread <sip.voidptr object at 0x0000000007C7BA58>
+2018-08-10 14:59:28 debug core.manager Activation success: True
+2018-08-10 14:59:28 info core.manager Loading module ".logic.trace_analysis_logic"
+2018-08-10 14:59:28 info core.manager Configuring TraceAnalysisLogic as trace_analysis
+2018-08-10 14:59:28 debug logic.trace_analysis_logic.TraceAnalysisLogic The following configuration was found.
+2018-08-10 14:59:28 debug logic.trace_analysis_logic.TraceAnalysisLogic module.Class: trace_analysis_logic.TraceAnalysisLogic
+2018-08-10 14:59:28 debug logic.trace_analysis_logic.TraceAnalysisLogic connect: OrderedDict([('counterlogic1', 'gatedcounter'), ('savelogic', 'savelogic'), ('fitlogic', 'fitlogic')])
+2018-08-10 14:59:28 info core.manager Connecting logic.trace_analysis.counterlogic1 to logic.gatedcounter
+2018-08-10 14:59:28 info core.manager Connecting logic.trace_analysis.savelogic to logic.savelogic
+2018-08-10 14:59:28 info core.manager Connecting logic.trace_analysis.fitlogic to logic.fitlogic
+2018-08-10 14:59:28 debug core.threadmanager Creating thread: "mod-logic-trace_analysis".
+2018-08-10 14:59:28 debug logic.trace_analysis_logic.TraceAnalysisLogic Activation in thread <sip.voidptr object at 0x0000000007D61828>
+2018-08-10 14:59:28 debug core.manager Activation success: True
+2018-08-10 14:59:28 info core.manager Loading module ".gui.gated_counter.gated_counter_gui"
+2018-08-10 14:59:28 info core.manager Configuring GatedCounterGui as gatedcountergui
+2018-08-10 14:59:28 debug gui.gated_counter.gated_counter_gui.GatedCounterGui The following configuration was found.
+2018-08-10 14:59:28 info gui.gated_counter.gated_counter_gui.GatedCounterGui module.Class: gated_counter.gated_counter_gui.GatedCounterGui
+2018-08-10 14:59:29 info gui.gated_counter.gated_counter_gui.GatedCounterGui connect: OrderedDict([('gatedcounterlogic1', 'gatedcounter'), ('traceanalysislogic1', 'trace_analysis')])
+2018-08-10 14:59:29 info core.manager Connecting gui.gatedcountergui.gatedcounterlogic1 to logic.gatedcounter
+2018-08-10 14:59:29 info core.manager Connecting gui.gatedcountergui.traceanalysislogic1 to logic.trace_analysis
+2018-08-10 14:59:29 debug gui.gated_counter.gated_counter_gui.GatedCounterGui Activation in thread <sip.voidptr object at 0x0000000007D618A0>
+2018-08-10 14:59:29 debug logic.counter_logic.CounterLogic New counting mode: CountingMode.FINITE_GATED
+2018-08-10 14:59:29 debug core.manager Activation success: True
+2018-08-10 15:26:02 info core.manager Deactivating gui.countergui
+2018-08-10 15:26:02 debug gui.counter.countergui.CounterGui Deactivation in thread <sip.voidptr object at 0x0000000014784648>
+2018-08-10 15:26:02 debug core.manager Deactivation success: True
+2018-08-10 15:26:03 info core.manager Deactivating gui.confocalgui
+2018-08-10 15:26:03 debug gui.confocal.confocalgui.ConfocalGui Deactivation in thread <sip.voidptr object at 0x0000000014784648>
+2018-08-10 15:26:03 debug core.manager Deactivation success: True
+2018-08-10 15:26:04 info core.manager Deactivating gui.switchgui
+2018-08-10 15:26:04 error core.manager gui module switchgui not loaded.
+2018-08-10 15:26:28 info core.manager Deactivating gui.switchgui
+2018-08-10 15:26:28 error core.manager gui module switchgui not loaded.
+2018-08-10 15:26:33 info core.manager Deactivating gui.gatedcountergui
+2018-08-10 15:26:33 debug gui.gated_counter.gated_counter_gui.GatedCounterGui Deactivation in thread <sip.voidptr object at 0x0000000007C7BD00>
+2018-08-10 15:26:33 debug core.manager Deactivation success: True
+2018-08-10 15:26:41 debug core.manager Deactivating ['nicard6323', 'savelogic', 'scannerlogic', 'fitlogic', 'optimizerlogic', 'confocalgui', 'counterlogic', 'countergui', 'gated_counter_nicard6323', 'gatedcounter', 'trace_analysis', 'gatedcountergui', 'man', 'tray', 'tasklogic']
+2018-08-10 15:26:41 info core.manager Deactivating module logic.tasklogic
+2018-08-10 15:26:41 info core.manager Deactivating logic.tasklogic
+2018-08-10 15:26:41 debug logic.taskrunner.TaskRunner Deactivation in thread <sip.voidptr object at 0x0000000007D61A58>
+2018-08-10 15:26:41 info core.manager Task runner removed.
+2018-08-10 15:26:41 debug core.threadmanager Quitting thread mod-logic-tasklogic.
+2018-08-10 15:26:41 debug core.threadmanager Waiting for thread mod-logic-tasklogic to end.
+2018-08-10 15:26:41 debug core.manager Deactivation success: True
+2018-08-10 15:26:41 debug core.threadmanager Thread mod-logic-tasklogic has quit.
+2018-08-10 15:26:41 debug core.threadmanager Cleaning up thread mod-logic-tasklogic.
+2018-08-10 15:26:41 info core.manager Deactivating module gui.tray
+2018-08-10 15:26:41 info core.manager Deactivating gui.tray
+2018-08-10 15:26:41 debug gui.trayicon.TrayIcon Deactivation in thread <sip.voidptr object at 0x00000000079129B8>
+2018-08-10 15:26:41 debug core.manager Deactivation success: True
+2018-08-10 15:26:41 info core.manager Deactivating module gui.man
+2018-08-10 15:26:41 info core.manager Deactivating gui.man
+2018-08-10 15:26:41 debug gui.manager.managergui.ManagerGui Deactivation in thread <sip.voidptr object at 0x00000000079129B8>
+2018-08-10 15:26:41 debug gui.manager.managergui.ManagerGui IPy deactivation: <sip.voidptr object at 0x0000000014784648>
+2018-08-10 15:26:41 debug core.manager Deactivation success: True
+2018-08-10 15:26:41 info core.manager Deactivating module logic.trace_analysis
+2018-08-10 15:26:41 info core.manager Deactivating logic.trace_analysis
+2018-08-10 15:26:42 debug logic.trace_analysis_logic.TraceAnalysisLogic Deactivation in thread <sip.voidptr object at 0x0000000014784648>
+2018-08-10 15:26:42 debug core.threadmanager Quitting thread mod-logic-trace_analysis.
+2018-08-10 15:26:42 debug core.threadmanager Waiting for thread mod-logic-trace_analysis to end.
+2018-08-10 15:26:42 debug core.manager Deactivation success: True
+2018-08-10 15:26:42 debug core.threadmanager Thread mod-logic-trace_analysis has quit.
+2018-08-10 15:26:42 debug core.threadmanager Cleaning up thread mod-logic-trace_analysis.
+2018-08-10 15:26:42 info core.manager Deactivating module logic.gatedcounter
+2018-08-10 15:26:42 info core.manager Deactivating logic.gatedcounter
+2018-08-10 15:26:42 debug logic.counter_logic.CounterLogic Deactivation in thread <sip.voidptr object at 0x0000000014784620>
+2018-08-10 15:26:42 debug core.threadmanager Quitting thread mod-logic-gatedcounter.
+2018-08-10 15:26:42 debug core.threadmanager Waiting for thread mod-logic-gatedcounter to end.
+2018-08-10 15:26:42 debug core.manager Deactivation success: True
+2018-08-10 15:26:42 debug core.threadmanager Thread mod-logic-gatedcounter has quit.
+2018-08-10 15:26:42 debug core.threadmanager Cleaning up thread mod-logic-gatedcounter.
+2018-08-10 15:26:42 info core.manager Deactivating module hardware.gated_counter_nicard6323
+2018-08-10 15:26:42 info core.manager Deactivating hardware.gated_counter_nicard6323
+2018-08-10 15:26:42 debug hardware.gated_ni_card.SlowGatedNICard Deactivation in thread <sip.voidptr object at 0x0000000007C7B968>
+2018-08-10 15:26:42 error hardware.gated_ni_card.SlowGatedNICard Error during deactivation
+Traceback (most recent call last):
+  File "C:\qudi\core\module.py", line 452, in wrap_event
+    base_event(*args, **kwargs)
+  File "C:\Anaconda3\lib\site-packages\fysom\__init__.py", line 303, in fn
+    self.transition()
+  File "C:\Anaconda3\lib\site-packages\fysom\__init__.py", line 298, in _tran
+    self._after_event(e)
+  File "C:\Anaconda3\lib\site-packages\fysom\__init__.py", line 329, in _after_event
+    return getattr(self, fnname)(e)
+  File "C:\Anaconda3\lib\site-packages\fysom\__init__.py", line 89, in _callback
+    return func(obj, *args, **kwargs)
+  File "C:\qudi\core\module.py", line 424, in __save_status_vars_deactivate
+    raise e
+  File "C:\qudi\core\module.py", line 422, in __save_status_vars_deactivate
+    self.on_deactivate()
+  File "C:\qudi\hardware\ni_card.py", line 371, in on_deactivate
+    self.reset_hardware()
+  File "C:\qudi\hardware\ni_card.py", line 800, in reset_hardware
+    chanlist.extend(self._photon_sources)
+AttributeError: 'SlowGatedNICard' object has no attribute '_photon_sources'
+2018-08-10 15:26:42 debug core.manager Deactivation success: False
+2018-08-10 15:26:42 info core.manager Deactivating module logic.counterlogic
+2018-08-10 15:26:42 info core.manager Deactivating logic.counterlogic
+2018-08-10 15:26:42 debug logic.counter_logic.CounterLogic Deactivation in thread <sip.voidptr object at 0x0000000014784648>
+2018-08-10 15:26:42 debug core.threadmanager Quitting thread mod-logic-counterlogic.
+2018-08-10 15:26:42 debug core.threadmanager Waiting for thread mod-logic-counterlogic to end.
+2018-08-10 15:26:42 debug core.manager Deactivation success: True
+2018-08-10 15:26:42 debug core.threadmanager Thread mod-logic-counterlogic has quit.
+2018-08-10 15:26:42 debug core.threadmanager Cleaning up thread mod-logic-counterlogic.
+2018-08-10 15:26:42 info core.manager Deactivating module logic.optimizerlogic
+2018-08-10 15:26:42 info core.manager Deactivating logic.optimizerlogic
+2018-08-10 15:26:42 debug logic.optimizer_logic.OptimizerLogic Deactivation in thread <sip.voidptr object at 0x0000000007D61A58>
+2018-08-10 15:26:42 debug core.threadmanager Quitting thread mod-logic-optimizerlogic.
+2018-08-10 15:26:42 debug core.threadmanager Waiting for thread mod-logic-optimizerlogic to end.
+2018-08-10 15:26:42 debug core.manager Deactivation success: True
+2018-08-10 15:26:42 debug core.threadmanager Thread mod-logic-optimizerlogic has quit.
+2018-08-10 15:26:42 debug core.threadmanager Cleaning up thread mod-logic-optimizerlogic.
+2018-08-10 15:26:42 info core.manager Deactivating module logic.fitlogic
+2018-08-10 15:26:43 info core.manager Deactivating logic.fitlogic
+2018-08-10 15:26:43 debug logic.fit_logic.FitLogic Deactivation in thread <sip.voidptr object at 0x0000000007D61B98>
+2018-08-10 15:26:43 debug core.threadmanager Quitting thread mod-logic-fitlogic.
+2018-08-10 15:26:43 debug core.threadmanager Waiting for thread mod-logic-fitlogic to end.
+2018-08-10 15:26:43 debug core.manager Deactivation success: True
+2018-08-10 15:26:43 debug core.threadmanager Thread mod-logic-fitlogic has quit.
+2018-08-10 15:26:43 debug core.threadmanager Cleaning up thread mod-logic-fitlogic.
+2018-08-10 15:26:43 info core.manager Deactivating module logic.scannerlogic
+2018-08-10 15:26:43 info core.manager Deactivating logic.scannerlogic
+2018-08-10 15:26:43 debug logic.confocal_logic.ConfocalLogic Deactivation in thread <sip.voidptr object at 0x0000000007912198>
+2018-08-10 15:26:43 debug core.threadmanager Quitting thread mod-logic-scannerlogic.
+2018-08-10 15:26:43 debug core.threadmanager Waiting for thread mod-logic-scannerlogic to end.
+2018-08-10 15:26:43 debug core.manager Deactivation success: True
+2018-08-10 15:26:43 debug core.threadmanager Thread mod-logic-scannerlogic has quit.
+2018-08-10 15:26:43 debug core.threadmanager Cleaning up thread mod-logic-scannerlogic.
+2018-08-10 15:26:43 info core.manager Deactivating module logic.savelogic
+2018-08-10 15:26:43 info core.manager Deactivating logic.savelogic
+2018-08-10 15:26:43 debug logic.save_logic.SaveLogic Deactivation in thread <sip.voidptr object at 0x0000000007D611C0>
+2018-08-10 15:26:43 debug core.threadmanager Quitting thread mod-logic-savelogic.
+2018-08-10 15:26:43 debug core.threadmanager Waiting for thread mod-logic-savelogic to end.
+2018-08-10 15:26:43 debug core.manager Deactivation success: True
+2018-08-10 15:26:43 debug core.threadmanager Thread mod-logic-savelogic has quit.
+2018-08-10 15:26:43 debug core.threadmanager Cleaning up thread mod-logic-savelogic.
+2018-08-10 15:26:43 info core.manager Deactivating module hardware.nicard6323
+2018-08-10 15:26:43 info core.manager Deactivating hardware.nicard6323
+2018-08-10 15:26:43 debug hardware.ni_card.NICard Deactivation in thread <sip.voidptr object at 0x000000000F5D5A58>
+2018-08-10 15:26:43 info hardware.ni_card.NICard Reset device NIDAQ.
+2018-08-10 15:26:44 debug core.manager Deactivation success: True
+2018-08-10 15:26:44 info __main__ Closing windows...
+2018-08-10 15:26:44 info __main__ Stopping threads...
+2018-08-10 15:26:44 debug core.threadmanager Quit all threads.
+2018-08-10 15:26:44 info __main__ Qudi is closed!  Ciao.

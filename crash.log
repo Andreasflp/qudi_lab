@@ -1,0 +1,24 @@
+b'content-type missing in HTTP POST, defaulting to application/x-www-form-urlencoded. Use QNetworkRequest::setHeader() to fix this problem.'
+  File "C:\qudi\core\__init__.py", line 98, in messageHandler
+    fh.write('\n'.join(traceback.format_stack()))
+b"QObject::moveToThread: Current thread (0x68e0e10) is not the object's thread (0x3b96ce0).\nCannot move to target thread (0xa218b30)\n"
+  File "C:\qudi\logic\taskrunner.py", line 160, in loadTasks
+    success = self._manager.startModule('logic', mod)
+
+  File "C:\qudi\core\manager.py", line 1012, in startModule
+    self.activateModule(mbase, mkey)
+
+  File "C:\qudi\core\manager.py", line 839, in activateModule
+    self.tree['loaded'][base][key].moveToThread(modthread)
+
+  File "C:\qudi\core\__init__.py", line 98, in messageHandler
+    fh.write('\n'.join(traceback.format_stack()))
+b'QThread: Destroyed while thread is still running'
+  File "C:\qudi\logic\taskrunner.py", line 160, in loadTasks
+    success = self._manager.startModule('logic', mod)
+
+  File "C:\qudi\core\manager.py", line 1012, in startModule
+    self.activateModule(mbase, mkey)
+
+  File "C:\qudi\core\__init__.py", line 98, in messageHandler
+    fh.write('\n'.join(traceback.format_stack()))

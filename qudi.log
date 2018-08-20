@@ -1,0 +1,109 @@
+2018-08-15 15:22:03 info __main__ Loading Qudi...
+2018-08-15 15:22:05 debug core.manager Main thread is <sip.voidptr object at 0x00000000058513A0>
+2018-08-15 15:22:05 info core.manager load.cfg config file found at C:\qudi\config\load.cfg
+2018-08-15 15:22:05 info core.manager Starting Manager configuration from C:/qudi/config/qudi-iqo-config/dk_spin_lab_magneto/dk_spin_lab_magneto.cfg
+2018-08-15 15:22:05 info core.manager Manager configuration complete.
+2018-08-15 15:22:05 debug core.threadmanager Creating thread: "rpyc-server".
+2018-08-15 15:22:05 warning core.remote Remote connection not secured! Use a certificate!
+2018-08-15 15:22:05 info core.remote Started module server at  on port 12345
+2018-08-15 15:22:05 info core.manager Started server rpyc://:12345
+2018-08-15 15:22:05 info core.manager Qudi started.
+2018-08-15 15:22:05 info core.manager Loading module ".gui.manager.managergui"
+2018-08-15 15:22:05 info RemoteModule/12345 server started on [0.0.0.0]:12345
+2018-08-15 15:22:06 info core.manager Configuring ManagerGui as man
+2018-08-15 15:22:06 debug gui.manager.managergui.ManagerGui Activation in thread <sip.voidptr object at 0x00000000069EA0F8>
+2018-08-15 15:22:07 debug gui.manager.managergui.ManagerGui IPy activation in thread <sip.voidptr object at 0x0000000007A193A0>
+2018-08-15 15:22:08 info gui.manager.managergui.ManagerGui IPython has kernel True
+2018-08-15 15:22:08 info gui.manager.managergui.ManagerGui IPython kernel alive True
+2018-08-15 15:22:08 debug core.manager Activation success: True
+2018-08-15 15:22:08 info core.manager Loading module ".gui.trayicon"
+2018-08-15 15:22:08 info core.manager Configuring TrayIcon as tray
+2018-08-15 15:22:08 debug gui.trayicon.TrayIcon Activation in thread <sip.voidptr object at 0x0000000007913170>
+2018-08-15 15:22:10 debug core.manager Activation success: True
+2018-08-15 15:22:10 info core.manager Loading module ".logic.taskrunner"
+2018-08-15 15:22:10 info core.manager Configuring TaskRunner as tasklogic
+2018-08-15 15:22:10 debug core.threadmanager Creating thread: "mod-logic-tasklogic".
+2018-08-15 15:22:10 debug logic.taskrunner.TaskRunner Activation in thread <sip.voidptr object at 0x00000000078D3468>
+2018-08-15 15:22:10 info core.manager Task runner registered.
+2018-08-15 15:22:10 debug core.manager Activation success: True
+2018-08-15 15:22:12 info core.manager Loading module ".logic.save_logic"
+2018-08-15 15:22:17 info core.manager Configuring SaveLogic as savelogic
+2018-08-15 15:22:17 warning logic.save_logic.SaveLogic No variable >> log_into_daily_directory << configured, using default value False instead.
+2018-08-15 15:22:17 debug core.threadmanager Creating thread: "mod-logic-savelogic".
+2018-08-15 15:22:17 debug logic.save_logic.SaveLogic Activation in thread <sip.voidptr object at 0x000000000CE615F8>
+2018-08-15 15:22:17 debug core.manager Activation success: True
+2018-08-15 15:22:18 info core.manager Loading module ".hardware.ni_card"
+2018-08-15 15:22:19 info core.manager Configuring NICard as nicard6323
+2018-08-15 15:22:19 debug hardware.ni_card.NICard Activation in thread <sip.voidptr object at 0x000000000B253288>
+2018-08-15 15:22:20 debug core.manager Activation success: True
+2018-08-15 15:22:20 info core.manager Loading module ".logic.confocal_logic"
+2018-08-15 15:22:20 info core.manager Configuring ConfocalLogic as scannerlogic
+2018-08-15 15:22:20 info core.manager Connecting logic.scannerlogic.confocalscanner1 to hardware.nicard6323
+2018-08-15 15:22:20 info core.manager Connecting logic.scannerlogic.savelogic to logic.savelogic
+2018-08-15 15:22:21 debug core.threadmanager Creating thread: "mod-logic-scannerlogic".
+2018-08-15 15:22:21 debug logic.confocal_logic.ConfocalLogic Activation in thread <sip.voidptr object at 0x000000001090E670>
+2018-08-15 15:22:21 debug core.manager Activation success: True
+2018-08-15 15:22:21 info core.manager Loading module ".logic.fit_logic"
+2018-08-15 15:22:24 info core.manager Configuring FitLogic as fitlogic
+2018-08-15 15:22:24 info logic.fit_logic.FitLogic Methods were included to FitLogic, but only if naming is right: check the doxygen documentation if you added a new method and it does not show.
+2018-08-15 15:22:24 debug core.threadmanager Creating thread: "mod-logic-fitlogic".
+2018-08-15 15:22:24 debug logic.fit_logic.FitLogic Activation in thread <sip.voidptr object at 0x0000000007BEFD78>
+2018-08-15 15:22:24 debug core.manager Activation success: True
+2018-08-15 15:22:24 info core.manager Loading module ".logic.optimizer_logic"
+2018-08-15 15:22:24 info core.manager Configuring OptimizerLogic as optimizerlogic
+2018-08-15 15:22:24 info core.manager Connecting logic.optimizerlogic.confocalscanner1 to hardware.nicard6323
+2018-08-15 15:22:24 info core.manager Connecting logic.optimizerlogic.fitlogic to logic.fitlogic
+2018-08-15 15:22:24 debug core.threadmanager Creating thread: "mod-logic-optimizerlogic".
+2018-08-15 15:22:24 debug logic.optimizer_logic.OptimizerLogic Activation in thread <sip.voidptr object at 0x00000000134D1D78>
+2018-08-15 15:22:24 debug core.manager Activation success: True
+2018-08-15 15:22:24 info core.manager Loading module ".gui.confocal.confocalgui"
+2018-08-15 15:22:24 info core.manager Configuring ConfocalGui as confocalgui
+2018-08-15 15:22:24 info core.manager Connecting gui.confocalgui.confocallogic1 to logic.scannerlogic
+2018-08-15 15:22:24 info core.manager Connecting gui.confocalgui.savelogic to logic.savelogic
+2018-08-15 15:22:24 info core.manager Connecting gui.confocalgui.optimizerlogic1 to logic.optimizerlogic
+2018-08-15 15:22:24 debug gui.confocal.confocalgui.ConfocalGui Activation in thread <sip.voidptr object at 0x0000000007C5D288>
+2018-08-15 15:22:25 warning Qt QWindowsWindow::setGeometry: Unable to set geometry 1261x1362+8+30 on QWidgetWindow/'MainWindowWindow'. Resulting geometry:  1261x1062+8+30 (frame: 8, 30, 8, 8, custom margin: 0, 0, 0, 0, minimum size: 802x922, maximum size: 16777215x16777215).
+2018-08-15 15:22:25 debug core.manager Activation success: True
+2018-08-15 15:22:25 info core.manager Loading module ".logic.counter_logic"
+2018-08-15 15:22:25 info core.manager Configuring CounterLogic as counterlogic
+2018-08-15 15:22:25 debug logic.counter_logic.CounterLogic The following configuration was found.
+2018-08-15 15:22:25 debug logic.counter_logic.CounterLogic module.Class: counter_logic.CounterLogic
+2018-08-15 15:22:25 debug logic.counter_logic.CounterLogic connect: OrderedDict([('counter1', 'nicard6323'), ('savelogic', 'savelogic')])
+2018-08-15 15:22:25 info core.manager Connecting logic.counterlogic.counter1 to hardware.nicard6323
+2018-08-15 15:22:25 info core.manager Connecting logic.counterlogic.savelogic to logic.savelogic
+2018-08-15 15:22:25 debug core.threadmanager Creating thread: "mod-logic-counterlogic".
+2018-08-15 15:22:25 debug logic.counter_logic.CounterLogic Activation in thread <sip.voidptr object at 0x0000000007C5D648>
+2018-08-15 15:22:25 debug core.manager Activation success: True
+2018-08-15 15:22:25 info core.manager Loading module ".gui.counter.countergui"
+2018-08-15 15:22:25 info core.manager Configuring CounterGui as countergui
+2018-08-15 15:22:26 info core.manager Connecting gui.countergui.counterlogic1 to logic.counterlogic
+2018-08-15 15:22:26 debug gui.counter.countergui.CounterGui Activation in thread <sip.voidptr object at 0x00000000135B8328>
+2018-08-15 15:22:26 debug core.manager Activation success: True
+2018-08-15 16:50:27 info core.manager Loading module ".hardware.microwave.mw_source_smr"
+2018-08-15 16:50:27 info core.manager Configuring MicrowaveSMR as rs_smr20
+2018-08-15 16:50:27 debug hardware.microwave.mw_source_smr.MicrowaveSMR Activation in thread <sip.voidptr object at 0x0000000007C5D968>
+2018-08-15 16:50:29 info hardware.microwave.mw_source_smr.MicrowaveSMR MicrowaveSMR: initialised and connected to hardware.
+2018-08-15 16:50:29 info hardware.microwave.mw_source_smr.MicrowaveSMR Load the device model "SMR20" from "ROHDE&SCHWARZ" with the serialnumber "834671/006" and the firmware version "1.44" successfully.
+2018-08-15 16:50:29 debug core.manager Activation success: True
+2018-08-15 16:50:29 info core.manager Loading module ".logic.odmr_logic"
+2018-08-15 16:50:29 info core.manager Configuring ODMRLogic as odmrlogic
+2018-08-15 16:50:29 info core.manager Connecting logic.odmrlogic.odmrcounter to hardware.nicard6323
+2018-08-15 16:50:29 info core.manager Connecting logic.odmrlogic.fitlogic to logic.fitlogic
+2018-08-15 16:50:30 info core.manager Connecting logic.odmrlogic.microwave1 to hardware.rs_smr20
+2018-08-15 16:50:30 info core.manager Connecting logic.odmrlogic.savelogic to logic.savelogic
+2018-08-15 16:50:30 info core.manager Connecting logic.odmrlogic.taskrunner to logic.tasklogic
+2018-08-15 16:50:30 debug core.threadmanager Creating thread: "mod-logic-odmrlogic".
+2018-08-15 16:50:30 debug logic.odmr_logic.ODMRLogic Activation in thread <sip.voidptr object at 0x00000000081D1738>
+2018-08-15 16:50:30 debug core.manager Activation success: True
+2018-08-15 16:50:30 info core.manager Loading module ".gui.odmr.odmrgui"
+2018-08-15 16:50:30 info core.manager Configuring ODMRGui as odmrgui
+2018-08-15 16:50:30 info core.manager Connecting gui.odmrgui.odmrlogic1 to logic.odmrlogic
+2018-08-15 16:50:30 info core.manager Connecting gui.odmrgui.savelogic to logic.savelogic
+2018-08-15 16:50:30 debug gui.odmr.odmrgui.ODMRGui Activation in thread <sip.voidptr object at 0x0000000014369FA8>
+2018-08-15 16:50:31 debug core.manager Activation success: True
+2018-08-15 16:54:38 debug logic.odmr_logic.ODMRLogic Estimated number of raw data lines: 99
+2018-08-15 16:56:49 debug logic.odmr_logic.ODMRLogic Estimated number of raw data lines: 399
+2018-08-15 16:58:17 debug logic.odmr_logic.ODMRLogic Estimated number of raw data lines: 1792
+2018-08-15 17:10:13 debug logic.odmr_logic.ODMRLogic Estimated number of raw data lines: 1792
+2018-08-15 17:11:21 debug logic.odmr_logic.ODMRLogic Estimated number of raw data lines: 1792
+2018-08-15 17:12:33 debug logic.odmr_logic.ODMRLogic Estimated number of raw data lines: 1792

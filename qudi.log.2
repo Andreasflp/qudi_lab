@@ -1,0 +1,155 @@
+2018-08-10 15:43:53 info __main__ Loading Qudi...
+2018-08-10 15:43:54 debug core.manager Main thread is <sip.voidptr object at 0x000000000579F3C8>
+2018-08-10 15:43:54 info core.manager load.cfg config file found at C:\qudi\config\load.cfg
+2018-08-10 15:43:54 info core.manager Starting Manager configuration from C:/qudi/config/qudi-iqo-config/dk_spin_lab_magneto/dk_spin_lab_magneto.cfg
+2018-08-10 15:43:54 info core.manager Manager configuration complete.
+2018-08-10 15:43:54 debug core.threadmanager Creating thread: "rpyc-server".
+2018-08-10 15:43:54 warning core.remote Remote connection not secured! Use a certificate!
+2018-08-10 15:43:54 info core.remote Started module server at  on port 12345
+2018-08-10 15:43:54 info core.manager Started server rpyc://:12345
+2018-08-10 15:43:54 info core.manager Qudi started.
+2018-08-10 15:43:54 info core.manager Loading module ".gui.manager.managergui"
+2018-08-10 15:43:54 info RemoteModule/12345 server started on [0.0.0.0]:12345
+2018-08-10 15:43:55 info core.manager Configuring ManagerGui as man
+2018-08-10 15:43:55 debug gui.manager.managergui.ManagerGui Activation in thread <sip.voidptr object at 0x0000000006986120>
+2018-08-10 15:43:55 debug gui.manager.managergui.ManagerGui IPy activation in thread <sip.voidptr object at 0x0000000007A34030>
+2018-08-10 15:43:55 info gui.manager.managergui.ManagerGui IPython has kernel True
+2018-08-10 15:43:55 info gui.manager.managergui.ManagerGui IPython kernel alive True
+2018-08-10 15:43:56 debug core.manager Activation success: True
+2018-08-10 15:43:56 info core.manager Loading module ".gui.trayicon"
+2018-08-10 15:43:56 info core.manager Configuring TrayIcon as tray
+2018-08-10 15:43:56 debug gui.trayicon.TrayIcon Activation in thread <sip.voidptr object at 0x0000000007922170>
+2018-08-10 15:43:56 debug core.manager Activation success: True
+2018-08-10 15:43:56 info core.manager Loading module ".logic.taskrunner"
+2018-08-10 15:43:56 info core.manager Configuring TaskRunner as tasklogic
+2018-08-10 15:43:56 debug core.threadmanager Creating thread: "mod-logic-tasklogic".
+2018-08-10 15:43:56 debug logic.taskrunner.TaskRunner Activation in thread <sip.voidptr object at 0x00000000078BBCB0>
+2018-08-10 15:43:56 info core.manager Task runner registered.
+2018-08-10 15:43:56 debug core.manager Activation success: True
+2018-08-10 15:44:05 info core.manager Loading module ".logic.save_logic"
+2018-08-10 15:44:05 info core.manager Configuring SaveLogic as savelogic
+2018-08-10 15:44:05 warning logic.save_logic.SaveLogic No variable >> log_into_daily_directory << configured, using default value False instead.
+2018-08-10 15:44:05 debug core.threadmanager Creating thread: "mod-logic-savelogic".
+2018-08-10 15:44:05 debug logic.save_logic.SaveLogic Activation in thread <sip.voidptr object at 0x000000000CE61648>
+2018-08-10 15:44:05 debug core.manager Activation success: True
+2018-08-10 15:44:05 info core.manager Loading module ".hardware.ni_card"
+2018-08-10 15:44:06 info core.manager Configuring NICard as nicard6323
+2018-08-10 15:44:06 debug hardware.ni_card.NICard Activation in thread <sip.voidptr object at 0x0000000007922210>
+2018-08-10 15:44:06 debug core.manager Activation success: True
+2018-08-10 15:44:06 info core.manager Loading module ".logic.confocal_logic"
+2018-08-10 15:44:06 info core.manager Configuring ConfocalLogic as scannerlogic
+2018-08-10 15:44:06 info core.manager Connecting logic.scannerlogic.confocalscanner1 to hardware.nicard6323
+2018-08-10 15:44:06 info core.manager Connecting logic.scannerlogic.savelogic to logic.savelogic
+2018-08-10 15:44:06 debug core.threadmanager Creating thread: "mod-logic-scannerlogic".
+2018-08-10 15:44:06 debug logic.confocal_logic.ConfocalLogic Activation in thread <sip.voidptr object at 0x00000000109048A0>
+2018-08-10 15:44:06 debug core.manager Activation success: True
+2018-08-10 15:44:06 info core.manager Loading module ".logic.fit_logic"
+2018-08-10 15:44:07 info core.manager Configuring FitLogic as fitlogic
+2018-08-10 15:44:07 info logic.fit_logic.FitLogic Methods were included to FitLogic, but only if naming is right: check the doxygen documentation if you added a new method and it does not show.
+2018-08-10 15:44:07 debug core.threadmanager Creating thread: "mod-logic-fitlogic".
+2018-08-10 15:44:07 debug logic.fit_logic.FitLogic Activation in thread <sip.voidptr object at 0x0000000007BFFD50>
+2018-08-10 15:44:07 debug core.manager Activation success: True
+2018-08-10 15:44:07 info core.manager Loading module ".logic.optimizer_logic"
+2018-08-10 15:44:07 info core.manager Configuring OptimizerLogic as optimizerlogic
+2018-08-10 15:44:07 info core.manager Connecting logic.optimizerlogic.confocalscanner1 to hardware.nicard6323
+2018-08-10 15:44:07 info core.manager Connecting logic.optimizerlogic.fitlogic to logic.fitlogic
+2018-08-10 15:44:07 debug core.threadmanager Creating thread: "mod-logic-optimizerlogic".
+2018-08-10 15:44:07 debug logic.optimizer_logic.OptimizerLogic Activation in thread <sip.voidptr object at 0x0000000007C70490>
+2018-08-10 15:44:07 debug core.manager Activation success: True
+2018-08-10 15:44:07 info core.manager Loading module ".gui.confocal.confocalgui"
+2018-08-10 15:44:07 info core.manager Configuring ConfocalGui as confocalgui
+2018-08-10 15:44:07 info core.manager Connecting gui.confocalgui.confocallogic1 to logic.scannerlogic
+2018-08-10 15:44:07 info core.manager Connecting gui.confocalgui.savelogic to logic.savelogic
+2018-08-10 15:44:07 info core.manager Connecting gui.confocalgui.optimizerlogic1 to logic.optimizerlogic
+2018-08-10 15:44:07 debug gui.confocal.confocalgui.ConfocalGui Activation in thread <sip.voidptr object at 0x0000000007C70940>
+2018-08-10 15:44:07 warning Qt QWindowsWindow::setGeometry: Unable to set geometry 1261x1362+8+30 on QWidgetWindow/'MainWindowWindow'. Resulting geometry:  1261x1062+8+30 (frame: 8, 30, 8, 8, custom margin: 0, 0, 0, 0, minimum size: 802x922, maximum size: 16777215x16777215).
+2018-08-10 15:44:07 debug core.manager Activation success: True
+2018-08-10 15:44:08 info core.manager Loading module ".logic.counter_logic"
+2018-08-10 15:44:08 info core.manager Configuring CounterLogic as counterlogic
+2018-08-10 15:44:08 debug logic.counter_logic.CounterLogic The following configuration was found.
+2018-08-10 15:44:08 debug logic.counter_logic.CounterLogic module.Class: counter_logic.CounterLogic
+2018-08-10 15:44:08 debug logic.counter_logic.CounterLogic connect: OrderedDict([('counter1', 'nicard6323'), ('savelogic', 'savelogic')])
+2018-08-10 15:44:08 info core.manager Connecting logic.counterlogic.counter1 to hardware.nicard6323
+2018-08-10 15:44:08 info core.manager Connecting logic.counterlogic.savelogic to logic.savelogic
+2018-08-10 15:44:08 debug core.threadmanager Creating thread: "mod-logic-counterlogic".
+2018-08-10 15:44:08 debug logic.counter_logic.CounterLogic Activation in thread <sip.voidptr object at 0x0000000007C70E18>
+2018-08-10 15:44:08 debug core.manager Activation success: True
+2018-08-10 15:44:08 info core.manager Loading module ".gui.counter.countergui"
+2018-08-10 15:44:09 info core.manager Configuring CounterGui as countergui
+2018-08-10 15:44:09 info core.manager Connecting gui.countergui.counterlogic1 to logic.counterlogic
+2018-08-10 15:44:09 debug gui.counter.countergui.CounterGui Activation in thread <sip.voidptr object at 0x0000000007C70788>
+2018-08-10 15:44:09 debug core.manager Activation success: True
+2018-08-10 15:51:23 info core.manager Deactivating gui.countergui
+2018-08-10 15:51:23 debug gui.counter.countergui.CounterGui Deactivation in thread <sip.voidptr object at 0x00000000079017B0>
+2018-08-10 15:51:23 debug core.manager Deactivation success: True
+2018-08-10 15:51:28 info core.manager Deactivating gui.confocalgui
+2018-08-10 15:51:28 debug gui.confocal.confocalgui.ConfocalGui Deactivation in thread <sip.voidptr object at 0x00000000079017B0>
+2018-08-10 15:51:28 debug core.manager Deactivation success: True
+2018-08-10 15:51:32 debug core.manager Deactivating ['savelogic', 'nicard6323', 'scannerlogic', 'fitlogic', 'optimizerlogic', 'confocalgui', 'counterlogic', 'countergui', 'man', 'tray', 'tasklogic']
+2018-08-10 15:51:32 info core.manager Deactivating module logic.tasklogic
+2018-08-10 15:51:32 info core.manager Deactivating logic.tasklogic
+2018-08-10 15:51:32 debug logic.taskrunner.TaskRunner Deactivation in thread <sip.voidptr object at 0x000000001314C710>
+2018-08-10 15:51:32 info core.manager Task runner removed.
+2018-08-10 15:51:32 debug core.threadmanager Quitting thread mod-logic-tasklogic.
+2018-08-10 15:51:32 debug core.threadmanager Waiting for thread mod-logic-tasklogic to end.
+2018-08-10 15:51:32 debug core.manager Deactivation success: True
+2018-08-10 15:51:32 debug core.threadmanager Thread mod-logic-tasklogic has quit.
+2018-08-10 15:51:32 debug core.threadmanager Cleaning up thread mod-logic-tasklogic.
+2018-08-10 15:51:32 info core.manager Deactivating module gui.tray
+2018-08-10 15:51:32 info core.manager Deactivating gui.tray
+2018-08-10 15:51:32 debug gui.trayicon.TrayIcon Deactivation in thread <sip.voidptr object at 0x00000000079226E8>
+2018-08-10 15:51:32 debug core.manager Deactivation success: True
+2018-08-10 15:51:32 info core.manager Deactivating module gui.man
+2018-08-10 15:51:32 info core.manager Deactivating gui.man
+2018-08-10 15:51:32 debug gui.manager.managergui.ManagerGui Deactivation in thread <sip.voidptr object at 0x00000000079226E8>
+2018-08-10 15:51:32 debug gui.manager.managergui.ManagerGui IPy deactivation: <sip.voidptr object at 0x000000001314C800>
+2018-08-10 15:51:32 debug core.manager Deactivation success: True
+2018-08-10 15:51:32 info core.manager Deactivating module logic.counterlogic
+2018-08-10 15:51:32 info core.manager Deactivating logic.counterlogic
+2018-08-10 15:51:33 debug logic.counter_logic.CounterLogic Deactivation in thread <sip.voidptr object at 0x000000001314C800>
+2018-08-10 15:51:33 debug core.threadmanager Quitting thread mod-logic-counterlogic.
+2018-08-10 15:51:33 debug core.threadmanager Waiting for thread mod-logic-counterlogic to end.
+2018-08-10 15:51:33 debug core.manager Deactivation success: True
+2018-08-10 15:51:33 debug core.threadmanager Thread mod-logic-counterlogic has quit.
+2018-08-10 15:51:33 debug core.threadmanager Cleaning up thread mod-logic-counterlogic.
+2018-08-10 15:51:33 info core.manager Deactivating module logic.optimizerlogic
+2018-08-10 15:51:33 info core.manager Deactivating logic.optimizerlogic
+2018-08-10 15:51:33 debug logic.optimizer_logic.OptimizerLogic Deactivation in thread <sip.voidptr object at 0x000000001314C710>
+2018-08-10 15:51:33 debug core.threadmanager Quitting thread mod-logic-optimizerlogic.
+2018-08-10 15:51:33 debug core.threadmanager Waiting for thread mod-logic-optimizerlogic to end.
+2018-08-10 15:51:33 debug core.manager Deactivation success: True
+2018-08-10 15:51:33 debug core.threadmanager Thread mod-logic-optimizerlogic has quit.
+2018-08-10 15:51:33 debug core.threadmanager Cleaning up thread mod-logic-optimizerlogic.
+2018-08-10 15:51:33 info core.manager Deactivating module logic.fitlogic
+2018-08-10 15:51:33 info core.manager Deactivating logic.fitlogic
+2018-08-10 15:51:33 debug logic.fit_logic.FitLogic Deactivation in thread <sip.voidptr object at 0x0000000007CA7E68>
+2018-08-10 15:51:33 debug core.threadmanager Quitting thread mod-logic-fitlogic.
+2018-08-10 15:51:33 debug core.threadmanager Waiting for thread mod-logic-fitlogic to end.
+2018-08-10 15:51:33 debug core.manager Deactivation success: True
+2018-08-10 15:51:33 debug core.threadmanager Thread mod-logic-fitlogic has quit.
+2018-08-10 15:51:33 debug core.threadmanager Cleaning up thread mod-logic-fitlogic.
+2018-08-10 15:51:33 info core.manager Deactivating module logic.scannerlogic
+2018-08-10 15:51:33 info core.manager Deactivating logic.scannerlogic
+2018-08-10 15:51:33 debug logic.confocal_logic.ConfocalLogic Deactivation in thread <sip.voidptr object at 0x0000000007BFFDF0>
+2018-08-10 15:51:33 debug core.threadmanager Quitting thread mod-logic-scannerlogic.
+2018-08-10 15:51:33 debug core.threadmanager Waiting for thread mod-logic-scannerlogic to end.
+2018-08-10 15:51:33 debug core.manager Deactivation success: True
+2018-08-10 15:51:33 debug core.threadmanager Thread mod-logic-scannerlogic has quit.
+2018-08-10 15:51:33 debug core.threadmanager Cleaning up thread mod-logic-scannerlogic.
+2018-08-10 15:51:33 info core.manager Deactivating module hardware.nicard6323
+2018-08-10 15:51:33 info core.manager Deactivating hardware.nicard6323
+2018-08-10 15:51:33 debug hardware.ni_card.NICard Deactivation in thread <sip.voidptr object at 0x000000000E964E90>
+2018-08-10 15:51:33 info hardware.ni_card.NICard Reset device NIDAQ.
+2018-08-10 15:51:33 debug core.manager Deactivation success: True
+2018-08-10 15:51:33 info core.manager Deactivating module logic.savelogic
+2018-08-10 15:51:33 info core.manager Deactivating logic.savelogic
+2018-08-10 15:51:34 debug logic.save_logic.SaveLogic Deactivation in thread <sip.voidptr object at 0x0000000007CA7080>
+2018-08-10 15:51:34 debug core.threadmanager Quitting thread mod-logic-savelogic.
+2018-08-10 15:51:34 debug core.threadmanager Waiting for thread mod-logic-savelogic to end.
+2018-08-10 15:51:34 debug core.manager Deactivation success: True
+2018-08-10 15:51:34 debug core.threadmanager Thread mod-logic-savelogic has quit.
+2018-08-10 15:51:34 debug core.threadmanager Cleaning up thread mod-logic-savelogic.
+2018-08-10 15:51:34 info __main__ Closing windows...
+2018-08-10 15:51:34 info __main__ Stopping threads...
+2018-08-10 15:51:34 debug core.threadmanager Quit all threads.
+2018-08-10 15:51:34 info __main__ Qudi is closed!  Ciao.
